@@ -1,0 +1,141 @@
+[data-theme="light"] {
+	--fondo-svg: url(./imagenes/moon-solid.svg);
+	--fondo: #B0A8B9;
+	--fondoVentana: #845EC2;
+	--texto: #000;
+	--textoVentana: #000;
+    --fondoTareas: #B0A8B9;
+    --fondoTareasHover: #7a7480;
+    --iconosFooter: #845EC2;
+}
+
+[data-theme="dark"] {
+	--fondo-svg: url(./imagenes/sun-solid.svg);
+	--fondo: #04151F;
+	--fondoVentana: #210C19;
+	--texto: #fff;
+	--textoVentana: #FF8066;
+    --fondoTareas: #49253b;
+    --fondoTareasHover: #693354;
+    --iconosFooter: #845EC2;
+}
+
+main {
+    height: 84vh;
+}
+
+body {
+    height: 100%;
+}
+
+header {
+	min-height: 6vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+h1 {
+    font-size: 2em;
+    color: var(--texto);
+}
+
+/* Configuracion switch color tema */
+.contenedor-switch {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	right: 15px;
+	top: 10px;
+	/* width: 250px; */
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 35px;
+}
+
+#slider-tema {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--texto);
+	transition: 0.4s;
+	border-radius: 35px;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-image: var(--fondo-svg);
+	background-size: cover;
+	background-position: center center;
+	transition: 0.4s;
+	border-radius: 50%;
+}
+
+input:checked + .slider {
+	background-color: var(--texto);
+}
+
+input:checked + .slider:before {
+	transform: translateX(26px);
+}
+
+footer {
+	width: 100%;
+    color: var(--texto);
+	min-height: 10vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+footer a:visited {
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: none;
+}
+
+.caja-links {
+	width: 100px;
+	display: flex;
+	margin: 10px;
+	justify-content: space-between;
+}
+
+.fab:hover {
+	filter: brightness(3);
+}
+
+.fab {
+	color: var(--iconosFooter);
+	font-size: 1.5em;
+}
+
+@media screen and (max-width: 416px) {
+	.contenedor-switch {
+		top: 50px;
+		width: 100%;
+		justify-content: space-evenly;
+	}
+}

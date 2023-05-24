@@ -16,3 +16,23 @@ setTheme(localStorage.getItem("theme") || preferedColorScheme);
 //
 
 
+const fallidos = document.querySelector(".fallidos")
+const ultimoResultado = document.querySelector(".ultimo-resultado")
+const mayorMenor = document.querySelector(".mayot-menor")
+const enviarAdivina = document.querySelector(".enviar-adivina")
+const inputAdivina = document.querySelector(".input-adivina")
+
+let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+let cantidadIntentos = 1
+let btnReseteo;
+
+function controlarNumero() {
+    const numeroIngresado = Number(inputAdivina.value)
+    if (cantidadIntentos === 1) {
+        fallidos = "Numero ingresados antes: "
+    }
+
+    fallidos.textContent += numeroIngresado + " "
+
+    
+}

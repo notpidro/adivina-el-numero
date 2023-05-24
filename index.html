@@ -10,12 +10,25 @@
 		<title>Juego de adivina el numero</title>
 	</head>
 	<body>
-		<div class="contenedor-switch">
-			<label class="switch">
-				<input type="checkbox" id="slider-tema" checked />
-				<span class="slider"></span>
-			</label>
-		</div>
+		<header>
+            <div class="contenedor-switch">
+                <label class="switch">
+                    <input type="checkbox" id="slider-tema" checked />
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+        <main>
+            <div class="contenedor-juego">
+                <input type="number" min="1" max="100" name="numero" class="input-adivina">
+                <input type="submit" value="enviar" class="enviar-adivina"">
+            </div>
+            <div class="contenedor-resultados">
+                <p class="fallidos"></p>
+                <p class="ultimo-resultado"></p>
+                <p class="mayor-menor"></p>
+            </div>
+        </main>
 		<footer>
 			<p>&copy Copyright Walter F. Campillay P.</p>
 			<div class="caja-links">

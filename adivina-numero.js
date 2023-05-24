@@ -17,7 +17,7 @@ setTheme(localStorage.getItem("theme") || preferedColorScheme);
 
 const fallidos = document.querySelector(".fallidos");
 const ultimoResultado = document.querySelector(".ultimo-resultado");
-const mayorMenor = document.querySelector(".mayot-menor");
+const mayorMenor = document.querySelector(".mayor-menor");
 const enviarAdivina = document.querySelector(".enviar-adivina");
 const inputAdivina = document.querySelector(".input-adivina");
 
@@ -28,7 +28,7 @@ let btnReseteo;
 function controlarNumero() {
 	const numeroIngresado = Number(inputAdivina.value);
 	if (cantidadIntentos === 1) {
-		fallidos = "Numero ingresados antes: ";
+		fallidos.textContent = "Numero ingresados antes: ";
 	}
 
 	fallidos.textContent += numeroIngresado + " ";
@@ -46,9 +46,9 @@ function controlarNumero() {
 		ultimoResultado.textContent = "Fallaste !";
 		ultimoResultado.style.backgroundColor = "red";
 		if (numeroIngresado < numeroAleatorio) {
-			mayorMenor.textContent = "El numero que ingresaste es bajo";
+			mayorMenor.textContent = "El numero que ingresaste es muy bajo";
 		} else if (numeroIngresado > numeroAleatorio) {
-			mayorMenor.textContent = "El numero que ingresaste es mas bajo";
+			mayorMenor.textContent = "El numero que ingresaste es muy alto";
 		}
 	}
 	cantidadIntentos++;
@@ -57,3 +57,28 @@ function controlarNumero() {
 }
 
 enviarAdivina.addEventListener("click", controlarNumero);
+
+function finDelJuego() {
+	inputAdivina.disabled = true;
+	enviarAdivina.disabled = true;
+	btnReseteo = document.createElement("button");
+	btnReseteo.textContent = "Empezar de nuevo";
+	document.body.appendChild(btnReseteo);
+	btnReseteo.addEventListener("click", resetearJuego);
+}
+
+function resetearJuego() {
+	cantidadIntentos = 1;
+	const resetearResultados = document.querySelectorAll(".contenedor-resultados p");
+	for (const resetearResultado of resetearResultados) {
+		resetearResultado.textContent = "";
+	}
+
+	btnReseteo.parentNode.removeChild(btnReseteo);
+	inputAdivina.disabled = false;
+	enviarAdivina.disabled = false;
+	inputAdivina.value = "";
+	inputAdivina.focus();
+	ultimoResultado.style.backgroundColor = "white";
+	numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+}

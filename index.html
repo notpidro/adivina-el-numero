@@ -5,12 +5,16 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<script src="https://kit.fontawesome.com/ce5b9ad9fa.js" crossorigin="anonymous"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="reseteo.css" />
 		<link rel="stylesheet" href="style.css" />
 		<title>Juego de adivina el numero</title>
 	</head>
 	<body>
 		<header>
+			<h1>Adivina el numero</h1>
             <div class="contenedor-switch">
                 <label class="switch">
                     <input type="checkbox" id="slider-tema" checked />
@@ -19,9 +23,12 @@
             </div>
         </header>
         <main>
+			<div class="descripcion-juego">
+				<h3>Seleccionamos un numero aleatorio entre el 1 y el 100. Adivinalo !</h3>
+			</div>
             <div class="contenedor-juego">
                 <input type="number" min="1" max="100" name="numero" class="input-adivina">
-                <input type="submit" value="enviar" class="enviar-adivina"">
+                <input type="submit" value="enviar" class="enviar-adivina" id="btn">
             </div>
             <div class="contenedor-resultados">
                 <p class="fallidos"></p>

@@ -20,10 +20,12 @@ const ultimoResultado = document.querySelector(".ultimo-resultado");
 const mayorMenor = document.querySelector(".mayor-menor");
 const enviarAdivina = document.querySelector(".enviar-adivina");
 const inputAdivina = document.querySelector(".input-adivina");
+const resultados = document.querySelector(".contenedor-resultados");
 
 let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
 let cantidadIntentos = 1;
 let btnReseteo;
+inputAdivina.focus();
 
 function controlarNumero() {
 	const numeroIngresado = Number(inputAdivina.value);
@@ -39,7 +41,7 @@ function controlarNumero() {
 		mayorMenor.textContent = "";
 		finDelJuego();
 	} else if (cantidadIntentos === 10) {
-		ultimoResultado = "Perdiste ! Fin del juego !";
+		ultimoResultado.textContent = "Perdiste ! Fin del juego !";
 		mayorMenor.textContent = "";
 		finDelJuego();
 	} else {
@@ -56,14 +58,13 @@ function controlarNumero() {
 	inputAdivina.focus();
 }
 
-enviarAdivina.addEventListener("click", controlarNumero);
-
 function finDelJuego() {
 	inputAdivina.disabled = true;
 	enviarAdivina.disabled = true;
 	btnReseteo = document.createElement("button");
+	btnReseteo.setAttribute("id", "btn");
 	btnReseteo.textContent = "Empezar de nuevo";
-	document.body.appendChild(btnReseteo);
+	resultados.appendChild(btnReseteo);
 	btnReseteo.addEventListener("click", resetearJuego);
 }
 
@@ -82,3 +83,8 @@ function resetearJuego() {
 	ultimoResultado.style.backgroundColor = "white";
 	numeroAleatorio = Math.floor(Math.random() * 100) + 1;
 }
+
+enviarAdivina.addEventListener("click", controlarNumero);
+inputAdivina.addEventListener("keypress", (event) => {
+	if (event.key === "Enter") controlarNumero();
+});

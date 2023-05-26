@@ -1,32 +1,26 @@
 [data-theme="light"] {
 	--fondo-svg: url(./imagenes/moon-solid.svg);
 	--fondo: #B0A8B9;
-	--fondoVentana: #845EC2;
 	--texto: #000;
-	--textoVentana: #000;
-    --fondoTareas: #B0A8B9;
-    --fondoTareasHover: #7a7480;
+	--btns: #845EC2;
     --iconosFooter: #845EC2;
 }
 
 [data-theme="dark"] {
 	--fondo-svg: url(./imagenes/sun-solid.svg);
 	--fondo: #04151F;
-	--fondoVentana: #210C19;
 	--texto: #fff;
-	--textoVentana: #FF8066;
-    --fondoTareas: #49253b;
-    --fondoTareasHover: #693354;
+	--btns: #845EC2;
     --iconosFooter: #845EC2;
 }
 
-main {
-    height: 84vh;
+body {
+	height: 100%;
+	font-family: 'Roboto', sans-serif;
+	background-color: var(--fondo);
 }
 
-body {
-    height: 100%;
-}
+/* Header */
 
 header {
 	min-height: 6vh;
@@ -36,10 +30,33 @@ header {
 }
 
 h1 {
-    font-size: 2em;
+	font-size: 2em;
     color: var(--texto);
 }
 
+/* Main */
+
+main {
+	height: 84vh;
+	color: var(--texto);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+h3 {
+	padding: 2em;
+}
+
+#btn {
+	background-color: var(--btns);
+	cursor: pointer;
+}
+
+#btn:hover {
+	filter: brightness(0.8);
+}
 /* Configuracion switch color tema */
 .contenedor-switch {
 	display: flex;
@@ -97,6 +114,8 @@ input:checked + .slider {
 input:checked + .slider:before {
 	transform: translateX(26px);
 }
+
+/* Footer */
 
 footer {
 	width: 100%;
